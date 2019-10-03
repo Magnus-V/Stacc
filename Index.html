@@ -1,30 +1,37 @@
-<!<!DOCTYPE html>
+<!DOCTYPE html>
 <head>
+  <meta charset="utf-8">
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <!-- jQuery library -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <!-- Latest compiled JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-  <script src="Javascript\script.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript" src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+  <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet"/>
+  <script src="Javascript\script.js" type="text/javascript"></script>
   <link rel="stylesheet" href="CSS\master.css">
 </head>
 <body>
   <div class="container-fluid">
-  <h1 class="alert">Stacc Lånekalkulator</h1>
-    <label for="">Lånebeløp</label>
-    <input type="number" name="" value="3000000">
-    <label for="">Nominell rente</label>
-    <input type="number" name="" value="3">
-    <label for="">Termingebyr</label>
-    <input type="number" name="" value="30">
-    <label for="">utløpsdato</label>
-    <input type="datetime" data-provide="datepicker" name="" value="2045-01-01">
-    <label for="">Saldodato</label>
-    <input class="datepicker" type="datetime" data-provide="datepicker" name="" value="2020-01-01">
-    <label for="">Dato første innbetaling</label>
-    <input type="datetime" data-provide="datepicker" name="" value="20-02-01">
-    <label for="">Ukjent verdi</label>
+  <h1>Stacc Lånekalkulator</h1>
+  <form id="form">
+    <label >Lånebeløp</label>
+    <input id="laanebelop" type="number" name="" value="3000000">
+    <label >Nominell rente</label>
+    <input id="nominellRente" type="number" name="" value="3">
+    <label >Termingebyr</label>
+    <input id="termingebyr" type="number" name="" value="30">
+    <label >Utløpsdato</label>
+    <input id="utlopsDato"type="datetime" class="datepicker" name="" value="2045-01-01">
+    <label >Saldodato</label>
+    <input id="saldoDato" class="datepicker" type="datetime" name="" value="2020-01-01">
+    <label >Dato første innbetaling</label>
+    <input id="datoForsteInnbetaling" class="datepicker" type="datetime" name="" value="20-02-01">
+    <!-- <label for="">Ukjent verdi</label>
     <input type="text" value="TERMINBELØP">
+    -->
+    <input type="submit" value="Beregn">
+  </form>
   </div>
 </body>
