@@ -34,6 +34,7 @@ function postRequest(){
 
 function doSomethingWithTheData(data){
   var vNedbetaling = data.nedbetalingsplan;
+  
   console.log(vNedbetaling);
 }
 
