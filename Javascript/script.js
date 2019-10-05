@@ -2,33 +2,47 @@
 var gURL = "https://visningsrom.stacc.com/dd_server_laaneberegning/rest/laaneberegning/v1/nedbetalingsplan"
 
 
-$('#form').submit(function(event){
-  event.preventDefault();
+function postRequest(){
   var vUkjentVerdi="TERMINBELOP";
-  $.post(gURL,
-    JSON.stringify({
+  $.ajax({
+    'url': 'https://visningsrom.stacc.com/dd_server_laaneberegning/rest/laaneberegning/v1/nedbetalingsplan',
+    'method':'POST',
+    'dataType': 'json',
+    processData: false,
+    'contentType': 'application/json',
+    'data': JSON.stringify({
         laanebelop:parseInt($('#laanebelop').val()),
         nominellRente:parseInt($('#nominellRente').val()),
         terminGebyr:parseInt($('#termingebyr').val()),
         utlopsDato:$('#utlopsDato').val(),
         saldoDato:$('#saldoDato').val(),
-        datoForsteInnbetaling:$('datoForsteInnbetaling'),
-        ukjentVerdi: vUkjentVerdi
+        datoForsteInnbetaling:$('#datoForsteInnbetaling').val(),
+        ukjentVerdi: "TERMINBELOP"
     }),
-  function(data, status){
-    alert("Data: " + data[0] + "\nStatus: " + status);
-    console.log(data);
-    alert(status);
-    debugger;
-  });
+    success: function(data, status, xhr){
+      doSomethingWithTheData(data);
+      return data;
+
+      },
+    error: function(xhr,status,error){
+      console.log(xhr);
+      console.log(status);
+      console.log(error);
+    }
+    });
+}
+
+function doSomethingWithTheData(data){
+  var vNedbetaling = data.nedbetalingsplan;
+}
+
+$('#submitButton').click(function(){
+  postRequest();
+  console.log("wtf");
 });
 
-$( function() {
+$(function() {
   $( ".datepicker" ).datepicker({
     dateFormat: 'yy-mm-dd'
   });
-} );
-
-$('.datepicker').datepicker({
-
 });
