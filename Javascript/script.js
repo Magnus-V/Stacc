@@ -34,11 +34,11 @@ function postRequest(){
 
 function doSomethingWithTheData(data){
   var vNedbetaling = data.nedbetalingsplan;
+  console.log(vNedbetaling);
 }
 
 $('#submitButton').click(function(){
   postRequest();
-  console.log("wtf");
 });
 
 $(function() {
