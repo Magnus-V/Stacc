@@ -49,12 +49,14 @@ function downPaymentChart(pInnbetaling){
   vTotal = [];
 
   pInnbetaling.forEach(function(item){
-    vDato.push(item.dato);
-    vGebyr.push(item.gebyr);
-    vInnbetaling.push(item.innbetaling)
-    vRenter.push(item.renter)
-    vRestgjeld.push(item.restgjeld)
-    vTotal.push(item.total);
+    if(item.total != 0){
+      vDato.push(item.dato);
+      vGebyr.push(item.gebyr);
+      vInnbetaling.push(item.innbetaling)
+      vRenter.push(item.renter)
+      vRestgjeld.push(item.restgjeld)
+      vTotal.push(item.total);
+    }
   });
 
   var vMinValue, vMaxValue;
@@ -89,17 +91,11 @@ function downPaymentChart(pInnbetaling){
     title: {
       text: 'Nedbetalingsplan',
     },
-    subtitle:{
-
-    },
     yAxis: {
       title:{
         text:'NOK',
       },
       valueDecimals: 2,
-    },
-    legend:{
-
     },
     tooltip: {
         valueDecimals: 0,
@@ -116,6 +112,7 @@ function downPaymentChart(pInnbetaling){
       {
         name: 'Gebyr',
         data: vGebyr,
+        visible:false,
       },
       {
         name:'Innbetaling',
@@ -128,10 +125,12 @@ function downPaymentChart(pInnbetaling){
       {
         name:'Restgjeld',
         data:vRestgjeld,
+        visible:false,
       },
       {
         name:'Total',
         data:vTotal,
+
       }
     ],
   })
@@ -139,6 +138,5 @@ function downPaymentChart(pInnbetaling){
 $(function() {
   $( ".datepicker" ).datepicker({
     dateFormat: 'yy-mm-dd',
-    uiLibrary: 'bootstrap4'
   });
 });
