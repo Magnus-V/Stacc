@@ -6,5 +6,3 @@ Stacc kodeoppgave
 4. Velg i grafen hvilke linjer som skal vises ved å trykke på deres navn og farge nederst.
 
 Forhåpentligvis er alt fungerende og lett å forstå.
-
-
