@@ -98,9 +98,10 @@ function downPaymentChart(pInnbetaling){
       valueDecimals: 2,
     },
     tooltip: {
-        valueDecimals: 0,
-        valueSuffix: 'NOK'
-    },
+      valueDecimals: 0,
+      valueSuffix: 'NOK',
+      shared: true,
+      },
     xAxis:{
       categories:vDatoer,
       valueDecimals: 2,
